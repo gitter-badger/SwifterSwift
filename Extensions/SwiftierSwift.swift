@@ -12,134 +12,134 @@ public class SwiftierSwift {
     
     /// Return shared instance UIApplication
     public static var sharedApplication: UIApplication {
-        return UIApplication.shared
+        return UIApplication.sharedApplication()
     }
     
     /// Return shared instance of AppDelegate
     public static var delegate: UIApplicationDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
+        return UIApplication.sharedApplication().delegate as! AppDelegate
     }
     
     /// Return app current version
     public static var appVersion: String? {
-        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        return NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
     }
     
     /// Return app current build number
     public static var appBuild: String? {
-        return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
+        return NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as? String
     }
     
     /// Return shared instance of current device
     public static var currentDevice: UIDevice {
-        return UIDevice.current
+        return UIDevice.currentDevice()
     }
     
     /// Return system current version
     public static var systemVersion: String {
-        return UIDevice.current.systemVersion
+        return UIDevice.currentDevice().systemVersion
     }
     
     /// Return current device name
     public static var deviceName: String {
-        return UIDevice.current.name
+        return UIDevice.currentDevice().name
     }
     
     /// Return current device model
     public static var deviceModel: String {
-        return UIDevice.current.model
+        return UIDevice.currentDevice().model
     }
     
     /// Return current battery level
     public static var batteryLevel: Float {
-        return UIDevice.current.batteryLevel
+        return UIDevice.currentDevice().batteryLevel
     }
     
     /// Return true if multitasking is supported in current device
     public static var isMultitaskingSupported: Bool {
-        return UIDevice.current.isMultitaskingSupported
+        return UIDevice.currentDevice().multitaskingSupported
     }
     
     /// Return current orientation of device
     public static var deviceOrientation: UIDeviceOrientation {
-        return UIDevice.current.orientation
+        return UIDevice.currentDevice().orientation
     }
     
     /// Application icon badge current number
     public static var applicationIconBadgeNumber: Int {
         get {
-            return UIApplication.shared.applicationIconBadgeNumber
+            return UIApplication.sharedApplication().applicationIconBadgeNumber
         }
         set {
-            UIApplication.shared.applicationIconBadgeNumber = newValue
+            UIApplication.sharedApplication().applicationIconBadgeNumber = newValue
         }
     }
     
     /// Network activity indicator state
     public static var isNetworkActivityIndicatorVisible: Bool {
         get {
-            return UIApplication.shared.isNetworkActivityIndicatorVisible
+            return UIApplication.sharedApplication().networkActivityIndicatorVisible
         }
         set {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = newValue
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = newValue
         }
     }
     
     /// Status bar visibility state
     public static var isStatusBarHidden: Bool {
         get {
-            return UIApplication.shared.isStatusBarHidden
+            return UIApplication.sharedApplication().statusBarHidden
         }
         set {
-            UIApplication.shared.isStatusBarHidden = newValue
+            UIApplication.sharedApplication().statusBarHidden = newValue
         }
     }
     
     /// Return key window (read only)
     public static var keyWindow: UIView? {
-        return UIApplication.shared.keyWindow
+        return UIApplication.sharedApplication().keyWindow
     }
     
     /// Most top view controller
     var mostTopViewController: UIViewController? {
         get {
-            return UIApplication.shared.keyWindow?.rootViewController
+            return UIApplication.sharedApplication().keyWindow?.rootViewController
         }
         set {
-            UIApplication.shared.keyWindow?.rootViewController = newValue
+            UIApplication.sharedApplication().keyWindow?.rootViewController = newValue
         }
     }
     
     /// Return true if device is registered for remote notifications for current app (read only)
     public static var isRegisteredForRemoteNotifications: Bool {
-        return UIApplication.shared.isRegisteredForRemoteNotifications
+        return UIApplication.sharedApplication().isRegisteredForRemoteNotifications()
     }
     
     /// Current status bar style
     public static var statusBarStyle: UIStatusBarStyle? {
         get {
-            return UIApplication.shared.statusBarStyle
+            return UIApplication.sharedApplication().statusBarStyle
         }
         set {
             if let style = newValue {
-                UIApplication.shared.statusBarStyle = style
+                UIApplication.sharedApplication().statusBarStyle = style
             }
         }
     }
     
     /// Return shared instance of standard UserDefaults
-    public static var userDefaults: UserDefaults {
-        return UserDefaults.standard
+    public static var userDefaults: NSUserDefaults {
+        return NSUserDefaults.standardUserDefaults()
     }
     
     /// Save an object to UserDefaults
     public static func set(value: AnyObject?, forKey: String) {
-        UserDefaults.standard.set(value, forKey: forKey)
+        NSUserDefaults.standardUserDefaults().setValue(value, forKey: forKey)
     }
     
     /// Get an object from UserDefaults
     public static func object(forKey: String) -> AnyObject? {
-        return UserDefaults.standard.object(forKey: forKey)
+        return NSUserDefaults.standardUserDefaults().objectForKey(forKey)
     }
     
     /// Return true if app is running in debug mode

@@ -9,22 +9,22 @@
 import Foundation
 public extension NSDate {
     
-    // tested
+    
     public var calendar: NSCalendar {
         return NSCalendar.currentCalendar()
     }
     
-    // tested
+    
     public var timeZone: NSTimeZone {
         return self.calendar.timeZone
     }
     
-    // tested
+    
     public var nanosecond: Int {
         return calendar.component(.Nanosecond, fromDate: self)
     }
     
-    // tested
+    
     public var second: Int {
         get {
             return calendar.component(.Second, fromDate: self)
@@ -36,7 +36,7 @@ public extension NSDate {
         }
     }
     
-    // tested
+    
     public var minute: Int {
         get {
             return calendar.component(.Minute, fromDate: self)
@@ -48,7 +48,7 @@ public extension NSDate {
         }
     }
     
-    // tested
+    
     public var hour: Int {
         get {
             return calendar.component(.Hour, fromDate: self)
@@ -60,7 +60,7 @@ public extension NSDate {
         }
     }
     
-    // tested
+    
     public var day: Int {
         get {
             return calendar.component(.Day, fromDate: self)
@@ -72,22 +72,22 @@ public extension NSDate {
         }
     }
     
-    // tested
+    
     public var weekday: Int {
         return calendar.component(.Weekday, fromDate: self)
     }
     
-    // tested
+    
     public var weekOfMonth: Int {
         return calendar.component(.WeekOfMonth, fromDate: self)
     }
     
-    // tested
+    
     public var weekOfYear: Int {
         return calendar.component(.WeekOfYear, fromDate: self)
     }
     
-    // tested
+    
     public var month: Int {
         get {
             return calendar.component(.Month, fromDate: self)
@@ -99,7 +99,7 @@ public extension NSDate {
         }
     }
     
-    // tested
+    
     public var year: Int {
         get {
             return calendar.component(.Year, fromDate: self)
@@ -111,22 +111,23 @@ public extension NSDate {
         }
     }
     
-    // tested
+    
     public var era: Int {
         return calendar.component(.Era, fromDate: self)
     }
     
-    // tested
+    
     public var quarter: Int {
         return calendar.component(.Quarter, fromDate: self)
     }
     
-    // tested
+    
     public var isInToday: Bool {
         return self.day == NSDate().day && self.month == NSDate().month && self.year == NSDate().year
     }
-    
-    // tested
+
+	// FIXME: couldnt find legacy equalivents
+    /*
     public func add(component: Calendar.Component, value: Int) {
         switch component {
             
@@ -214,4 +215,5 @@ public extension NSDate {
         
         self = calendar.date(from: components) ?? Date()
     }
+	*/
 }

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+/*
 @testable import SwiftierSwift
 
 class DateExtensionsTests: XCTestCase {
@@ -155,3 +156,4 @@ class DateExtensionsTests: XCTestCase {
         super.tearDown()
     }
 }
+*/
