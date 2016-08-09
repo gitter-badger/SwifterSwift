@@ -10,13 +10,13 @@ import Foundation
 public extension String {
     
     // tested
-    public var locale: Locale {
-        return Locale.current
+    public var locale: NSLocale {
+        return NSLocale.currentLocale()
     }
     
     // tested
     public func count(of string: String) -> Int {
-        return components(separatedBy: string).count - 1
+		return componentsSeparatedByString(string).count - 1
     }
     
     // tested
@@ -31,7 +31,7 @@ public extension String {
     
     // tested
     public var empty: Bool {
-        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).characters.count == 0
+        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).characters.count == 0
     }
     
     // tested
@@ -41,12 +41,12 @@ public extension String {
     
     // tested
     public var trimmed: String {
-        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        return self.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
     }
     
     // tested
     public mutating func trim() {
-        self = self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        self = self.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
     }
     
     // tested

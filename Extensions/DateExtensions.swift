@@ -7,115 +7,127 @@
 //
 
 import Foundation
-public extension Date {
+public extension NSDate {
     
     // tested
-    public var calendar: Calendar {
-        return Calendar.current
+    public var calendar: NSCalendar {
+        return NSCalendar.currentCalendar()
     }
     
     // tested
-    public var timeZone: TimeZone {
+    public var timeZone: NSTimeZone {
         return self.calendar.timeZone
     }
     
     // tested
     public var nanosecond: Int {
-        return calendar.component(.nanosecond, from: self)
+        return calendar.component(.Nanosecond, fromDate: self)
     }
     
     // tested
     public var second: Int {
         get {
-            return calendar.component(.second, from: self)
+            return calendar.component(.Second, fromDate: self)
         }
-        set {
-            self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond)
+		set {
+			// FIXME:
+            //self = NSDate(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond)
+			self.second = newValue
         }
     }
     
     // tested
     public var minute: Int {
         get {
-            return calendar.component(.minute, from: self)
+            return calendar.component(.Minute, fromDate: self)
         }
         set {
-            self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: newValue, second: second, nanosecond: nanosecond)
+			// FIXME:
+            //self = NSDate(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: newValue, second: second, nanosecond: nanosecond)
+			self.minute = newValue
         }
     }
     
     // tested
     public var hour: Int {
         get {
-            return calendar.component(.hour, from: self)
+            return calendar.component(.Hour, fromDate: self)
         }
         set {
-            self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: newValue, minute: minute, second: second, nanosecond: nanosecond)
+			// FIXME:
+            //self = NSDate(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: newValue, minute: minute, second: second, nanosecond: nanosecond)
+			self.hour = newValue
         }
     }
     
     // tested
     public var day: Int {
         get {
-            return calendar.component(.day, from: self)
+            return calendar.component(.Day, fromDate: self)
         }
         set {
-            self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: newValue, hour: hour, minute: minute, second: second, nanosecond: nanosecond)
+			// FIXME:
+            //self = NSDate(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: newValue, hour: hour, minute: minute, second: second, nanosecond: nanosecond)
+			self.day = newValue
         }
     }
     
     // tested
     public var weekday: Int {
-        return calendar.component(.weekday, from: self)
+        return calendar.component(.Weekday, fromDate: self)
     }
     
     // tested
     public var weekOfMonth: Int {
-        return calendar.component(.weekOfMonth, from: self)
+        return calendar.component(.WeekOfMonth, fromDate: self)
     }
     
     // tested
     public var weekOfYear: Int {
-        return calendar.component(.weekOfYear, from: self)
+        return calendar.component(.WeekOfYear, fromDate: self)
     }
     
     // tested
     public var month: Int {
         get {
-            return calendar.component(.month, from: self)
+            return calendar.component(.Month, fromDate: self)
         }
         set {
-            self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: newValue, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond)
+			// FIXME:
+            //self = NSDate(calendar: calendar, timeZone: timeZone, era: era, year: year, month: newValue, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond)
+			self.month = newValue
         }
     }
     
     // tested
     public var year: Int {
         get {
-            return calendar.component(.year, from: self)
+            return calendar.component(.Year, fromDate: self)
         }
         set {
-            self = Date(calendar: calendar, timeZone: timeZone, era: era, year: newValue, month: month, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond)
+			// FIXME:
+            //self = NSDate(calendar: calendar, timeZone: timeZone, era: era, year: newValue, month: month, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond)
+			self.year = newValue
         }
     }
     
     // tested
     public var era: Int {
-        return calendar.component(.era, from: self)
+        return calendar.component(.Era, fromDate: self)
     }
     
     // tested
     public var quarter: Int {
-        return calendar.component(.quarter, from: self)
+        return calendar.component(.Quarter, fromDate: self)
     }
     
     // tested
     public var isInToday: Bool {
-        return self.day == Date().day && self.month == Date().month && self.year == Date().year
+        return self.day == NSDate().day && self.month == NSDate().month && self.year == NSDate().year
     }
     
     // tested
-    public mutating func add(component: Calendar.Component, value: Int) {
+    public func add(component: Calendar.Component, value: Int) {
         switch component {
             
         case .second:
