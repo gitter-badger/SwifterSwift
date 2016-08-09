@@ -15,7 +15,7 @@ public extension UIView {
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         animation.duration = 0.6
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
-        layer.add(animation, forKey: "shake")
+        layer.addAnimation(animation, forKey: "shake")
     }
     
     @IBInspectable
@@ -34,14 +34,14 @@ public extension UIView {
             guard let color = layer.borderColor else {
                 return nil
             }
-            return UIColor(cgColor: color)
+            return UIColor(CGColor: color)
         }
         set {
             guard let color = newValue else {
                 layer.borderColor = nil
                 return
             }
-            layer.borderColor = color.cgColor
+            layer.borderColor = color.CGColor
         }
     }
     
@@ -57,11 +57,11 @@ public extension UIView {
     
     public var firstResponder: UIView? {
         
-        guard !self.isFirstResponder else {
+        guard !self.isFirstResponder() else {
             return self
         }
         for subView in subviews {
-            if subView.isFirstResponder {
+            if subView.isFirstResponder() {
                 return subView
             }
         }

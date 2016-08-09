@@ -18,7 +18,7 @@ public extension Array where Element:Equatable {
     /// Return the first index of an element in an array
     public func firstIndex <Item: Equatable> (of item: Item) -> Int? {
         if item is Element {
-            for (index, value) in self.lazy.enumerated() {
+            for (index, value) in self.lazy.enumerate() {
                 if value as! Item == item {
                     return index
                 }
@@ -31,7 +31,7 @@ public extension Array where Element:Equatable {
     /// Return the last index of an element in an array
     public func lastIndex <Item: Equatable> (of item: Item) -> Int? {
         if item is Element {
-            for (index, value) in self.reversed().lazy.enumerated() {
+            for (index, value) in self.reverse().lazy.enumerate() {
                 if value as! Item == item {
                     return count - 1 - index
                 }
@@ -43,9 +43,9 @@ public extension Array where Element:Equatable {
     
     /// Remove an element from an array
     public mutating func remove(object: Element) {
-        for (index, element) in enumerated() {
+        for (index, element) in enumerate() {
             if object == element {
-                self.remove(at: index)
+                self.removeAtIndex(index)
             }
         }
     }

@@ -10,8 +10,8 @@ import Foundation
 public extension Character {
 
     /// Return current locale
-    public var locale: Locale {
-        return Locale.current
+    public var locale: NSLocale {
+        return NSLocale.currentLocale()
     }
     
     /// Return true if character is a decimal number

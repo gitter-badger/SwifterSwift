@@ -13,7 +13,7 @@ public extension UINavigationController {
         // https://github.com/cotkjaer/UserInterface/blob/master/UserInterface/UIViewController.swift
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)
-        popViewController(animated: true)
+        popViewControllerAnimated(true)
         CATransaction.commit()
     }
     
