@@ -37,7 +37,7 @@
 |**shuffled** | Variable | Array | Return shuffled version of array |
 |**indexes(of item)** | Function | [Int] | Return all indexes of specified item |
 |**prepend(item)** | Function | -- | Prepend an element to array |
-|**sum** | Variable | Array | Sum of all elements in the array |
+|**sum** | Variable | Number | Return sum of all elements in the array |
 |**average** | Variable | Double | Average of all elements in array |
 
 ## Character extensions
